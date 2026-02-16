@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Code Review — Omer Cengiz ePortfolio</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="ambient"><div class="ambient-orb"></div><div class="ambient-orb"></div><div class="ambient-orb"></div></div>
+
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">Omer Cengiz</a>
+      <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')">&#9776;</button>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="code-review.html" class="active">Code Review</a></li>
+        <li><a href="enhancement-one.html">Enhancement 1</a></li>
+        <li><a href="enhancement-two.html">Enhancement 2</a></li>
+        <li><a href="enhancement-three.html">Enhancement 3</a></li>
+        <li><a href="self-assessment.html">Self-Assessment</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="main">
+    <header class="page-header">
+      <span class="label">00 — Code Review</span>
+      <h1>Code Review</h1>
+      <p>A comprehensive walkthrough of the Travlr Getaways codebase, analyzing existing functionality, identifying issues, and outlining planned enhancements.</p>
+    </header>
+
+    <section class="section">
+      <h2>Video Walkthrough</h2>
+      <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/LIy8FtGkRko" title="CS 499 Code Review - Travlr Getaways" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>What the Code Review Covers</h2>
+      <h3>Existing Functionality</h3>
+      <p>The review begins with a demonstration of the application from both the customer and admin perspectives, showing how users browse and book trips, and how administrators manage the trip catalog through the Angular dashboard.</p>
+      <h3>Code Analysis</h3>
+      <p>Using a structured checklist, the review evaluates the codebase across multiple dimensions: code structure and organization, logic and efficiency, security posture, testing coverage, and documentation quality. Key findings include the absence of automated tests, inefficient client-side search filtering, and missing security controls on API endpoints.</p>
+      <h3>Planned Enhancements</h3>
+      <p>Each identified issue maps to one of three planned enhancements, which together address the full spectrum of capstone outcomes:</p>
+      <ul>
+        <li><strong>Software Design &amp; Engineering:</strong> End-to-end testing with Playwright to catch regressions and verify security</li>
+        <li><strong>Algorithms &amp; Data Structures:</strong> MongoDB text indexes to replace O(n) client-side search with O(log n) database-level operations</li>
+        <li><strong>Databases &amp; Security:</strong> Rate limiting, role-based access control, and input sanitization to harden the API</li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <h2>Course Outcomes</h2>
+      <div class="tags">
+        <span class="tag tag--outcome">Outcome 1 — Collaboration</span>
+        <span class="tag tag--outcome">Outcome 2 — Communication</span>
+      </div>
+      <p>The code review demonstrates collaboration practices by evaluating code the way a professional team would during peer review. It demonstrates communication skills through clear, structured presentation of technical analysis to a broad audience.</p>
+    </section>
+
+    <div style="margin-top: 2rem;">
+      <a href="enhancement-one.html" class="btn btn-primary">Next: Enhancement One &rarr;</a>
+    </div>
+
+    <footer class="footer">
+      <p>Omer Cengiz &mdash; CS 499 Computer Science Capstone &mdash; Southern New Hampshire University</p>
+      <p style="margin-top: 0.5rem;"><a href="https://github.com/omerfarukcengizzzz" target="_blank">GitHub</a></p>
+    </footer>
+  </main>
+</body>
+</html>
