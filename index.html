@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Omer Cengiz — CS 499 ePortfolio</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="ambient"><div class="ambient-orb"></div><div class="ambient-orb"></div><div class="ambient-orb"></div></div>
+
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">Omer Cengiz</a>
+      <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')">&#9776;</button>
+      <ul class="nav-links">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="code-review.html">Code Review</a></li>
+        <li><a href="enhancement-one.html">Enhancement 1</a></li>
+        <li><a href="enhancement-two.html">Enhancement 2</a></li>
+        <li><a href="enhancement-three.html">Enhancement 3</a></li>
+        <li><a href="self-assessment.html">Self-Assessment</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="main">
+    <section class="hero">
+      <span class="hero-label">CS 499 Computer Science Capstone</span>
+      <h1>Professional <em>ePortfolio</em></h1>
+      <p>A showcase of technical growth through the enhancement of Travlr Getaways, a full-stack MEAN application — demonstrating skills in software engineering, algorithm optimization, and security hardening.</p>
+      <div class="hero-buttons">
+        <a href="https://github.com/omerfarukcengizzzz/CS-499" target="_blank" class="btn btn-primary">View Repository &rarr;</a>
+        <a href="code-review.html" class="btn btn-outline">Watch Code Review</a>
+      </div>
+    </section>
+
+    <div class="cards">
+      <a href="code-review.html" class="card fade-in">
+        <span class="card-number">00</span>
+        <h3>Code Review</h3>
+        <p>A walkthrough of the Travlr Getaways codebase analyzing structure, efficiency, and security before enhancements.</p>
+      </a>
+      <a href="enhancement-one.html" class="card fade-in">
+        <span class="card-number">01</span>
+        <h3>Software Design &amp; Engineering</h3>
+        <p>54 end-to-end Playwright tests covering customer flows, admin CRUD operations, and authentication security.</p>
+      </a>
+      <a href="enhancement-two.html" class="card fade-in">
+        <span class="card-number">02</span>
+        <h3>Algorithms &amp; Data Structures</h3>
+        <p>MongoDB text indexes with weighted fields replacing O(n) client-side search with O(log n) database-level operations.</p>
+      </a>
+      <a href="enhancement-three.html" class="card fade-in">
+        <span class="card-number">03</span>
+        <h3>Databases &amp; Security</h3>
+        <p>Comprehensive security hardening including RBAC, rate limiting, input validation, and 600K PBKDF2 iterations.</p>
+      </a>
+      <a href="self-assessment.html" class="card fade-in">
+        <span class="card-number">04</span>
+        <h3>Professional Self-Assessment</h3>
+        <p>A reflection on skills developed throughout the Computer Science program and how they connect to professional goals.</p>
+      </a>
+    </div>
+
+    <section class="section">
+      <h2>The Artifact</h2>
+      <p><strong>Travlr Getaways</strong> is a travel booking application originally built in CS 465 (Full Stack Development). The app uses the MEAN stack — MongoDB, Express, Angular, and Node.js — with a customer-facing website, an Angular admin SPA, and a REST API with JWT authentication.</p>
+      <p>Using one artifact across all three enhancement categories demonstrates how different computer science disciplines interconnect in real-world applications. Testing infrastructure from Enhancement One supported validation of the search optimizations in Enhancement Two, while both informed the security implementations in Enhancement Three.</p>
+    </section>
+
+    <section class="section">
+      <h2>Additional Improvements</h2>
+      <p>Beyond the three core enhancements, nine improvement branches were developed, reviewed, and merged:</p>
+      <ul>
+        <li><strong>Controller Modernization</strong> — Refactored 7 controllers from the deprecated request module to native fetch with async/await</li>
+        <li><strong>Direct Database Queries</strong> — Replaced inefficient HTTP self-calls in the customer app with direct Mongoose queries</li>
+        <li><strong>Scalable Pagination</strong> — Added pagination to trips and bookings APIs for both small datasets and large catalogs</li>
+        <li><strong>Data Model Standardization</strong> — Converted pricing fields from strings to proper numeric types to prevent calculation bugs</li>
+      </ul>
+    </section>
+
+    <footer class="footer">
+      <p>Omer Cengiz &mdash; CS 499 Computer Science Capstone &mdash; Southern New Hampshire University</p>
+      <p style="margin-top: 0.5rem;"><a href="https://github.com/omerfarukcengizzzz" target="_blank">GitHub</a></p>
+    </footer>
+  </main>
+</body>
+</html>

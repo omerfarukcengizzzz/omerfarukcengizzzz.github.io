@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Enhancement Three — Omer Cengiz ePortfolio</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="ambient"><div class="ambient-orb"></div><div class="ambient-orb"></div><div class="ambient-orb"></div></div>
+
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">Omer Cengiz</a>
+      <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')">&#9776;</button>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="code-review.html">Code Review</a></li>
+        <li><a href="enhancement-one.html">Enhancement 1</a></li>
+        <li><a href="enhancement-two.html">Enhancement 2</a></li>
+        <li><a href="enhancement-three.html" class="active">Enhancement 3</a></li>
+        <li><a href="self-assessment.html">Self-Assessment</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="main">
+    <header class="page-header">
+      <span class="label">03 — Databases &amp; Security</span>
+      <h1>Comprehensive Security Hardening</h1>
+      <p>Layered security controls protecting the API against brute force attacks, privilege escalation, and injection vulnerabilities.</p>
+    </header>
+
+    <div class="stats">
+      <div class="stat"><span class="stat-number">600K</span><span class="stat-label">PBKDF2 Iterations</span></div>
+      <div class="stat"><span class="stat-number">12</span><span class="stat-label">Secured Endpoints</span></div>
+      <div class="stat"><span class="stat-number">9</span><span class="stat-label">Improvement Branches</span></div>
+      <div class="stat"><span class="stat-number">3</span><span class="stat-label">Security Layers</span></div>
+    </div>
+
+    <section class="section">
+      <h2>Before Enhancement</h2>
+      <p>The original application had JWT authentication and basic PBKDF2 password hashing, but was missing several critical security controls. There was no protection against brute force attacks on the login endpoint, no distinction between regular users and administrators at the API level, and no safeguards against NoSQL injection attacks. The password hashing used only 1,000 PBKDF2 iterations — far below the OWASP 2023 recommendation of 600,000.</p>
+    </section>
+
+    <section class="section">
+      <h2>Security Implementations</h2>
+      <h3>Password Security</h3>
+      <p>PBKDF2 password hashing was upgraded from 1,000 to 600,000 iterations, meeting OWASP 2023 standards. This dramatically increases the computational cost of brute force attacks against stolen password hashes.</p>
+      <h3>Rate Limiting</h3>
+      <p>express-rate-limit middleware protects authentication endpoints with smart limits that differentiate between attacks and legitimate users. The login route is limited to 5 attempts per 15-minute window, and registration is limited to 3 attempts per hour. Exceeded limits return a 429 status code with a clear message explaining when the user can try again.</p>
+      <h3>Role-Based Access Control (RBAC)</h3>
+      <p>The User schema was extended with a role field accepting either 'user' or 'admin', defaulting to 'user' for new registrations. The JWT payload now includes the user's role, and a requireAdmin middleware verifies permissions before allowing access to sensitive operations. Ownership checks were added across all 12 sensitive endpoints, ensuring users can only modify their own data.</p>
+      <h3>Input Validation &amp; Sanitization</h3>
+      <p>Two layers of input protection were added. express-mongo-sanitize runs as global middleware, stripping <code>$</code> and <code>.</code> characters from request bodies and query parameters to prevent NoSQL injection. Comprehensive express-validator schemas were added to every POST/PUT/PATCH route, enforcing strict validation rules on all incoming data.</p>
+      <h3>Frontend Route Protection</h3>
+      <p>The Angular admin SPA was secured with CanActivateFn route guards, preventing unauthorized users from navigating to admin pages on the client side. This complements the server-side middleware for defense in depth.</p>
+    </section>
+
+    <section class="section">
+      <h2>Attack Vectors Addressed</h2>
+      <table class="comparison-table">
+        <thead><tr><th>Attack Vector</th><th>Before</th><th>After</th></tr></thead>
+        <tbody>
+          <tr><td>Brute force password guessing</td><td>Unlimited login attempts</td><td class="highlight">5 attempts per 15 minutes</td></tr>
+          <tr><td>Privilege escalation</td><td>No role distinction at API level</td><td class="highlight">RBAC + ownership verification</td></tr>
+          <tr><td>NoSQL injection</td><td>No input sanitization</td><td class="highlight">Global sanitization middleware</td></tr>
+          <tr><td>Malformed input</td><td>Minimal validation</td><td class="highlight">express-validator on all routes</td></tr>
+          <tr><td>Weak password hashing</td><td>1,000 PBKDF2 iterations</td><td class="highlight">600,000 PBKDF2 iterations</td></tr>
+          <tr><td>Unauthorized admin navigation</td><td>No client-side protection</td><td class="highlight">Angular CanActivateFn guards</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="section">
+      <h2>Middleware Architecture</h2>
+      <p>The security controls operate at the middleware level, protecting the application uniformly without modifying individual controller functions. The request pipeline processes security in this order:</p>
+      <ol>
+        <li><strong>Body parsing</strong> — Express parses the incoming request body</li>
+        <li><strong>Input sanitization</strong> — express-mongo-sanitize strips dangerous characters</li>
+        <li><strong>Rate limiting</strong> — Checked before authentication to block automated attacks early</li>
+        <li><strong>JWT authentication</strong> — Token verification and user identification</li>
+        <li><strong>Role verification</strong> — requireAdmin middleware checks the JWT role claim</li>
+        <li><strong>Input validation</strong> — express-validator schemas enforce data integrity</li>
+        <li><strong>Controller</strong> — Business logic executes only after all checks pass</li>
+      </ol>
+    </section>
+
+    <section class="section">
+      <h2>Skills &amp; Outcomes</h2>
+      <div class="tags">
+        <span class="tag">API Security</span><span class="tag">Rate Limiting</span><span class="tag">RBAC</span><span class="tag">Input Validation</span><span class="tag">NoSQL Injection Prevention</span><span class="tag">PBKDF2</span><span class="tag">Angular Route Guards</span>
+      </div>
+      <div class="tags" style="margin-top: 0.5rem;">
+        <span class="tag tag--outcome">Outcome 4 — Tools &amp; Techniques</span>
+        <span class="tag tag--outcome">Outcome 5 — Security Mindset</span>
+      </div>
+      <p style="margin-top: 1rem;"><strong>Outcome 4:</strong> The implementation uses industry-standard npm packages: express-rate-limit (2M+ weekly downloads), express-mongo-sanitize, and express-validator. Using established, community-reviewed libraries follows the security principle of relying on well-tested code.</p>
+      <p><strong>Outcome 5:</strong> Every feature represents thinking through a specific attack vector and implementing appropriate defenses. Rate limiting addresses brute force. RBAC with ownership checks addresses privilege escalation. Sanitization and validation address injection. This is the security mindset in practice.</p>
+    </section>
+
+    <div style="margin-top: 2rem;">
+      <a href="https://github.com/omerfarukcengizzzz/CS-499" target="_blank" class="btn btn-primary">View Code on GitHub &rarr;</a>
+      <a href="self-assessment.html" class="btn btn-outline" style="margin-left: 0.75rem;">Next: Self-Assessment &rarr;</a>
+    </div>
+
+    <footer class="footer">
+      <p>Omer Cengiz &mdash; CS 499 Computer Science Capstone &mdash; Southern New Hampshire University</p>
+      <p style="margin-top: 0.5rem;"><a href="https://github.com/omerfarukcengizzzz" target="_blank">GitHub</a></p>
+    </footer>
+  </main>
+</body>
+</html>
