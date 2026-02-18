@@ -163,7 +163,7 @@ a.card:hover::before { background: linear-gradient(90deg, transparent, rgba(122,
 .coming-soon h2::after { display: none; }
 
 /* ─── Self-Assessment Content ─── */
-.self-assessment-content { max-width: 780px; }
+.self-assessment-content { max-width: 1100px; }
 .self-assessment-content h2::after { display: none; }
 .self-assessment-content h2 { border-bottom: none; padding-bottom: 0; margin-top: 2.5rem; }
 .self-assessment-content h2:first-child { margin-top: 0; }
